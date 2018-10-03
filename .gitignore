@@ -23,6 +23,7 @@
 
 # Package Files #
 *.jar
+!among_main.jar
 *.war
 *.nar
 *.ear
