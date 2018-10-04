@@ -27,4 +27,7 @@ repositories {
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation fileTree(dir: 'lib', include: '*.jar')
+    //https://repocafe.cels.anl.gov/repos/repast/2.5.0/plugins/
 }

@@ -23,7 +23,8 @@
 
 # Package Files #
 *.jar
-!among_main.jar
+!repast.simphony.bin_and_src.jar
+!repast.simphony.runtime_2.5.0.jar
 *.war
 *.nar
 *.ear
