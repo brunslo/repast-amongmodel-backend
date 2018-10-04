@@ -25,6 +25,9 @@
 *.jar
 !repast.simphony.bin_and_src.jar
 !repast.simphony.runtime_2.5.0.jar
+!jpf-boot.jar
+!jpf.jar
+!saf.core.runtime.jar
 *.war
 *.nar
 *.ear

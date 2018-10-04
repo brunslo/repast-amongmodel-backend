@@ -15,12 +15,16 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
+
 group = 'com.repast.among.model.backend'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven{
+        url 'https://github.com/equella/jpf/tree/master/source/org/java/plugin'
+    }
 }
 
 
@@ -29,5 +33,7 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     annotationProcessor 'org.projectlombok:lombok'
     implementation fileTree(dir: 'lib', include: '*.jar')
+
+    compile 'log4j:log4j:1.2.16' // Force version to remove Gradle build warning
     //https://repocafe.cels.anl.gov/repos/repast/2.5.0/plugins/
 }
