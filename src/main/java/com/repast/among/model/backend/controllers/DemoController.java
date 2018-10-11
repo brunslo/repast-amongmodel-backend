@@ -26,6 +26,4 @@ public class DemoController {
         obj.start(modelFileName);
         return "Demo test";
     }
-
-
 }
