@@ -1,11 +1,11 @@
 package com.repast.among.model.backend.services;
 
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.Map;
-import lombok.val;
+
 
 @Service
 public class AmongModelService {
@@ -59,9 +59,9 @@ public class AmongModelService {
     private String supplyShockMagnitude;
 
 
+    private final Map<String,String> paramSourceMap = new HashMap<>();
 
     public Map<String, String> generateInitalParamMap() {
-        val paramSourceMap = new HashMap<String, String>();
 
         paramSourceMap.put("aggregateDataOutput", aggregateDataOutput);
         paramSourceMap.put("cgtShockMagnitude", cgtShockMagnitude);
@@ -80,7 +80,14 @@ public class AmongModelService {
         paramSourceMap.put("supplyShock", supplyShock);
         paramSourceMap.put("supplyShockMagnitude", supplyShockMagnitude);
 
-
         return paramSourceMap;
+    }
+
+    public void setParamValue(@NonNull final String paramKey, @NonNull final String paramValue) {
+
+        System.out.println("before bParamMap is="+ paramSourceMap);
+        paramSourceMap.put(paramKey, paramValue);
+        System.out.println("ParamMap is="+ paramSourceMap);
+
     }
 }
