@@ -16,7 +16,7 @@ public class ParametersController{
     private final Map<String, String> parameterMap = new ConcurrentHashMap<>();
     private final List<Object> allChartMap = Collections.synchronizedList(new ArrayList<>());
 
-    @PostMapping("/initialise")
+    @PostMapping("/initialise-parameter")
     public ResponseEntity<?> initialise(@RequestBody final Map<String, String> parameterMap) {
         this.parameterMap.clear();
         this.parameterMap.putAll(parameterMap);
@@ -36,14 +36,20 @@ public class ParametersController{
         return ResponseEntity.ok(parameterMap);
     }
 
-    @PostMapping("/sendCharts")
+
+    @PostMapping("/initialise-chart")
+    public ResponseEntity<?> initialise() {
+        this.allChartMap.clear();
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/charts")
     public ResponseEntity<?> sendCharts(@RequestBody final Map<String, java.lang.String> chartMap) {
 
         this.allChartMap.add(chartMap);
         return ResponseEntity.ok().build();
     }
-
-    @GetMapping("/getCharts")
+    @GetMapping("/charts")
     public ResponseEntity<?> getCharts() {
         return ResponseEntity.ok(allChartMap);
     }
