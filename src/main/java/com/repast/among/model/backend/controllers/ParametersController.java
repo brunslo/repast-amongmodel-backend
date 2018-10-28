@@ -3,55 +3,37 @@ package com.repast.among.model.backend.controllers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toMap;
 
 @RestController
-public class ParametersController{
+@RequestMapping("/parameters")
+public class ParametersController {
     private final Map<String, String> parameterMap = new ConcurrentHashMap<>();
-    private final List<Object> allChartMap = Collections.synchronizedList(new ArrayList<>());
 
-    @PostMapping("/initialise-parameter")
-    public ResponseEntity<?> initialise(@RequestBody final Map<String, String> parameterMap) {
+    @PostMapping("/initialise")
+    public ResponseEntity<?> initialise() {
         this.parameterMap.clear();
+
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping
+    public ResponseEntity<?> postParameters(@RequestBody final Map<String, String> parameterMap) {
         this.parameterMap.putAll(parameterMap);
 
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/set-parameter")
-    public ResponseEntity<?> setParameter(@RequestParam final String name, @RequestParam final String value) {
+    @PutMapping
+    public ResponseEntity<?> putParameters(@RequestParam final String name, @RequestParam final String value) {
         parameterMap.put(name, value);
 
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/parameters")
-    public ResponseEntity<?> parameters() {
+    @GetMapping
+    public ResponseEntity<?> getParameters() {
         return ResponseEntity.ok(parameterMap);
     }
-
-
-    @PostMapping("/initialise-chart")
-    public ResponseEntity<?> initialise() {
-        this.allChartMap.clear();
-        return ResponseEntity.ok().build();
-    }
-
-    @PostMapping("/charts")
-    public ResponseEntity<?> sendCharts(@RequestBody final Map<String, java.lang.String> chartMap) {
-
-        this.allChartMap.add(chartMap);
-        return ResponseEntity.ok().build();
-    }
-    @GetMapping("/charts")
-    public ResponseEntity<?> getCharts() {
-        return ResponseEntity.ok(allChartMap);
-    }
-
 }
