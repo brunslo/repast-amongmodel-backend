@@ -14,7 +14,6 @@ public class ParametersController {
     @PostMapping("/initialise")
     public ResponseEntity<?> initialise() {
         this.parameterMap.clear();
-
         return ResponseEntity.ok().build();
     }
 
