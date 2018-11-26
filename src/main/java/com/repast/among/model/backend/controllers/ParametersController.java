@@ -24,7 +24,7 @@ public class ParametersController {
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping
+    @PostMapping("/setParam")
     public ResponseEntity<?> putParameters(@RequestParam("name") final String name, @RequestParam("value") final String value) {
 
         this.parameterMap.put(name, value);
