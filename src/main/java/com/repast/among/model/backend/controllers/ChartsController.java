@@ -4,7 +4,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @RestController
@@ -36,13 +38,7 @@ public class ChartsController {
 
     @GetMapping
     public ResponseEntity<?> getCharts() {
-
-        Collections.sort(charts, new Comparator<Map<String, String>>() {
-            @Override
-            public int compare(Map<String, String> o1, Map<String, String> o2) {
-                return new BigDecimal(o1.get("tick")).compareTo(new BigDecimal(o2.get("tick")));
-            }
-        });
+        charts.sort(Comparator.comparing(o -> new BigDecimal(o.get("tick"))));
 
         return ResponseEntity.ok(charts);
     }
