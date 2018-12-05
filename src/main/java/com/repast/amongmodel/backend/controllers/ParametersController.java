@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
-@RequestMapping("/parameters")
+@RequestMapping("/api/parameters")
 public class ParametersController {
     private final Map<String, String> parameterMap = new ConcurrentHashMap<>();
 

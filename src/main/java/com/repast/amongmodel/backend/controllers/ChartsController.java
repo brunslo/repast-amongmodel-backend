@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @RestController
-@RequestMapping("/charts")
+@RequestMapping("/api/charts")
 public class ChartsController {
     private final List<Map<String, String>> charts = new CopyOnWriteArrayList<>();
 
