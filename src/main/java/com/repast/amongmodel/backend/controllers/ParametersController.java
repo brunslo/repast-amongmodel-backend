@@ -1,4 +1,4 @@
-package com.repast.among.model.backend.controllers;
+package com.repast.amongmodel.backend.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

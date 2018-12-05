@@ -1,4 +1,4 @@
-package com.repast.among.model.backend;
+package com.repast.amongmodel.backend;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

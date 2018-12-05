@@ -1,4 +1,4 @@
-package com.repast.among.model.backend;
+package com.repast.amongmodel.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
