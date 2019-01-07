@@ -13,8 +13,8 @@ EXPOSE 8080
 RUN groupadd -g 999 appuser && \
     useradd -r -u 999 -g appuser appuser
 
-COPY --from=builder --chown=appuser:appuser /build/target/backend-*.jar /backend.jar
+COPY --from=builder --chown=appuser:appuser /build/target/amongmodel-backend-*.jar /amongmodel-backend.jar
 
 USER appuser
 
-CMD "/backend.jar"
+CMD "/amongmodel-backend.jar"
