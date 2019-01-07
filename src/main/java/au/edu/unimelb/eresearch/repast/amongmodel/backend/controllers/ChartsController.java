@@ -38,7 +38,7 @@ public class ChartsController {
 
     @GetMapping
     public ResponseEntity<?> getCharts() {
-        charts.sort(Comparator.comparing(o -> new BigDecimal(o.get("tick"))));
+        charts.sort(Comparator.comparing(o -> new BigDecimal(o.getOrDefault("tick", "-1"))));
 
         return ResponseEntity.ok(charts);
     }
