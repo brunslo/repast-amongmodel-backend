@@ -9,5 +9,5 @@ mvn clean package
 ``` 
 It can also be built and packaged into a Docker container directly, without any Java/Maven specific dependencies:
 ```docker
-docker build -t repast-amongmodel-0.1.0-SNAPSHOT
+docker build -t repast-amongmodel-backend-0.1.0-SNAPSHOT
 ```
