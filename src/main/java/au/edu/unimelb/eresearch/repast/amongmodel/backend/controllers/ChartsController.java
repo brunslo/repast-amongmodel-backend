@@ -1,4 +1,4 @@
-package com.repast.amongmodel.backend.controllers;
+package au.edu.unimelb.eresearch.repast.amongmodel.backend.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +38,7 @@ public class ChartsController {
 
     @GetMapping
     public ResponseEntity<?> getCharts() {
-        charts.sort(Comparator.comparing(o -> new BigDecimal(o.get("tick"))));
+        charts.sort(Comparator.comparing(o -> new BigDecimal(o.getOrDefault("tick", "-1"))));
 
         return ResponseEntity.ok(charts);
     }
